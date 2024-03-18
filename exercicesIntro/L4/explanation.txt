@@ -1,0 +1,29 @@
+1. v-if, v-else-if, v-else
+Ces expressions ce mettent après une balise et c'est comme
+si on faisait un simple code avec des conditions. Ceci fait 
+que quand la condition est remplie il va montrer la balise,
+si la condition n'est pas remplie, la balise ne sera pas montrée.
+Exemple :
+<p v-if="inventory > 10">In Stock</p>
+<p v-else-if="inventory <= 10 && inventory > 0">Almost out of Stock</p>
+<p v-else>Out of Stock</p>
+
+Dans un code ce serait comme ceci :
+let d = document.queryById('inventory')
+if (inventory > 10){
+        d.innerHTML = 'In Stock'
+} else if (inventory <= 10 && inventory > 0){
+        d.innerHTML = 'Almost out of Stock'
+} else {
+        d.innerHTML = 'Out of Stock'
+}
+
+Cela nous permet donc d'économiser beaucoup de place
+
+2. v-show
+Le v-show sert à faire en sorte que la balise ne sera pas affichée
+si la condition n'est pas remplie, il va mettre un display: none
+qui va permettre de cacher cette balise.
+Exemple :
+<p v-show="inStock">In Stock</p>
+(Si la condition est vraie, il montrera la balise et sinon il va la cacher)
