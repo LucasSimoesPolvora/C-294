@@ -1,0 +1,11 @@
+1. V-bind
+Le V-bind permet de lier un attribut à une expression. 
+Lors de cette exercice nous avons lier l'attribut "src"
+à l'expression "image" qui était dans notre main.js.
+On peut comparer cela à des accolades "moustache", mais 
+pour un attribut.
+La syntaxe est la suivante :
+<img v-bind:src="image">
+        ou
+<img :src="image"> (version simplifiée)
+
