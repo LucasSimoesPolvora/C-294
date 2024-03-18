@@ -5,5 +5,5 @@ Lors de ce module nous allons implémenter l'API que nous avons programmé lors 
 Implémenter, au moyen de la technologie définie et à l’aide d’un back-end existant, le front-end d’une application Web interactive permettant la gestion de données.
 
 ## Exercices
-Les exercices ont été fournis par Vue Mastery afin d'apprendre plus sur Vue.js. Les exercices sont venus avec des vidéos explicatives sur le lien ci-dessous :
+Les exercices ont été fournis par Vue Mastery afin d'apprendre plus sur Vue.js. Les exercices sont venus avec des vidéos explicatives sur le lien suivant :
 https://www.vuemastery.com/courses/intro-to-vue-3
