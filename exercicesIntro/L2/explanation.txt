@@ -1,0 +1,19 @@
+1. Imports
+Sur l'index.html, on importe vue avec cette ligne de code :
+"<script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>"
+On importe aussi le main, et le dernier script qu'on va faire est une petite
+ligne de code : 
+<script>
+    const mountedApp = app.mount('#app')
+</script>
+
+Que fait cette mountedApp ? 
+Elle va monter et initialiser Vue sur la div où l'id est égale à app. 
+
+2. Les accolades "moustache" : 
+Lorsqu'on veut importer une valeur on met la balise, une {{}}, et à l'intérieur
+on écrit la variable qu'on a mis sur Vue.
+
+3. Changement de la valeur sur la console du site
+Lorsqu'on va sur la console de notre site web, on peut changer la valeur en mettant 
+le nom de la variable du mount ensuite .NomDeLaVariable = 'NouvelleValeur'
