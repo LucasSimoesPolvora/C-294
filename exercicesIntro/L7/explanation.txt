@@ -1,0 +1,26 @@
+1. style
+Pour rajouter un style, on fait un lien entre un
+attribut et une expression. Puis, on fait un objet
+avec la propriété css et ensuite on ajoute la valeur.
+Exemple : 
+:style="{ backgroundColor:  variant.color }"
+
+ATTENTION : vu qu'on met le css en js il faut utiliser
+du camel si on veut utiliser du kebab, comme le fait le
+css, il faut mettre des guillemets. Voici un exemple :
+:style="{ 'background-color':  variant.color }"
+
+On peut aussi faire un objet avec des presets de css.
+Exemple :
+JS :
+data() {
+    return{
+        styles: {
+            color: 'red',
+            fontSize: '14px'
+        }
+    }
+}
+
+HTML :
+:style="styles"
