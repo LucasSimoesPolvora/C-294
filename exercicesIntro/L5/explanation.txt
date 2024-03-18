@@ -1,0 +1,13 @@
+1. v-for
+Le v-for va permettre de faire une loop comme
+une boucle foreach. C'est pourtant pour cela que
+nous utilisons "x in y" comme argument. Si il se 
+trouve dans une balise <li> il va créer le nombre
+de <li> nécessaire pour que chaque valeur dans le 
+tableau soit utilisé, chaque valeur a sa balise.
+Exemple :
+<li v-for="detail in details">{{ detail }}</li>
+
+On peut aussi utiliser un objet :
+<div v-for="variant in variants" :key="variant.id">{{ variant.color }}</div>
+Il faut juste spécifier quel champ on veut prendre avec nomObjet.champVoulu
