@@ -1,0 +1,20 @@
+1. v-on
+v-on est une directive qui permettra de gérer
+des événements. On peut par exemple mettre v-on:click
+ou v-on:mouseOver, etc... Pour savoir tous les events,
+on peut juste mettre comme attribut "on" et ensuite vs
+code nous montre tous les events. 
+Exemple: 
+<button class="button" v-on:click="cart += 1">Add to Cart</button>
+
+Il y a aussi une version courte qui consiste à mettre un "@" avant.
+Exemple: 
+<button class="button" @click="cart += 1">Add to Cart</button>
+
+2. Méthode
+Nous pouvons déclarer une méthode en mettant la methods dans la 
+constante app (vue.createApp), comme démontré dans le fichier main.juste
+de ce dossier. Ensuite on écrit notre méthode comme si c'était en js.
+Pour appeler cette méthode il faut mettre le nom de la méthode et si
+il n'y a pas d'arguments, on a pas besoin de mettre les parenthèses. 
+Cependant s'il y en a on doit les mettre. 
