@@ -1,0 +1,16 @@
+1. Computed properties
+Faire des propriétés computed permet de simplifier le code.
+Par exemple : 
+<h1>{{brand + ' ' + product}}</h1>
+on peut aussi faire comme ca dans le fichier mainJS (on peut voir
+ce dossier) :
+computed : {
+    title(){
+        return this.brand + ' ' + this.product
+    }
+}
+
+<h1>{{title}}</h1>
+
+Si dans une propriété computed c'est égal à 0 cela veut aussi dire 
+que il est égal à "false"
