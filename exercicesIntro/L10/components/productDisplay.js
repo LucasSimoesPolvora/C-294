@@ -48,9 +48,11 @@ app.component("product-display", {
           class="button" 
           :class="{ disabledButton: !inCart }" 
           :disabled="!inCart" 
+          v-if="inStock"
           v-on:click="removeFromCart">
           Remove
         </button>
+        <p v-if="inStock">Number of products in cart: {{ NumberInCart }}</p>
       </div>
     </div>
   </div>`,
@@ -66,26 +68,34 @@ app.component("product-display", {
           color: "green",
           image: "./assets/images/socks_green.jpg",
           quantity: 50,
+          nbrInCart: 0,
         },
         {
           id: 2235,
           color: "blue",
           image: "./assets/images/socks_blue.jpg",
-          quantity: 10,
+          quantity: 0,
+          nbrInCart: 0,
         },
       ],
     };
   },
   methods: {
     addToCart() {
-      console.log(this.cart);
-      this.$emit("add-to-cart", {
-        id: this.variants[this.selectedVariant].id,
-        add: true,
-      });
+      if(this.variants[this.selectedVariant].nbrInCart + 1 > this.variants[this.selectedVariant].quantity){
+        alert("VOUS AVEZ TROP DE CE PRODUIT. ON N'EN AURA PLUS EN STOCK ! PENSEZ AUX AUTRES !!!")
+      } else {
+        console.log(this.cart);
+        this.variants[this.selectedVariant].nbrInCart += 1
+        this.$emit("add-to-cart", {
+          id: this.variants[this.selectedVariant].id,
+          add: true,
+        });
+      }
     },
     removeFromCart() {
       console.log(this.cart);
+      this.variants[this.selectedVariant].nbrInCart -= 1
       this.$emit("remove-from-cart", {
         id: this.variants[this.selectedVariant].id,
         add: false,
@@ -120,5 +130,14 @@ app.component("product-display", {
       });
       return nbr
     },
+    NumberInCart(){
+      let nbr = 0;
+      this.cart.forEach(product => {
+        if (product == this.variants[this.selectedVariant].id) {
+          nbr += 1
+        }
+      });
+      return nbr
+    }
   },
 });
