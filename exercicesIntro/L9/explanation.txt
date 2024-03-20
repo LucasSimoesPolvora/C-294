@@ -1,0 +1,23 @@
+1. composants
+Les composants servent à faire des lignes de code
+html qui pourraient être répétitives une seule fois 
+Pour cela un crée un dossier components et un crée un
+fichier par composant. Il sera mis dans le template
+
+2. props
+les props servent à retirer des informations du parent.
+C'est comparable à un argument dans une fonction.
+
+Voici la syntaxe de tout ce que j'ai fait
+
+app.component('nom-du-composant', {
+    props: {
+        variableAPrendre : {
+            type: int,
+            required: true ou false (Pas obligatoire)
+        }
+    },
+    template: 
+    /*html*/ <= active l'extention es6-string-html
+    `<p>ton html</p>`
+})
