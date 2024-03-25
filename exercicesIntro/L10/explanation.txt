@@ -1,0 +1,41 @@
+1. Communicating events
+Cette méthode a été créée afin que les intéractions
+dans les composants puissent être accessible à tout le code.
+Voici comment cela a été fait : 
+1) La première étape est de créer une méthode dans le composant
+qui sera appelé depuis le bouton voulu
+
+2) Le contenu de la méthode aura un this.$emit ce qui permettra
+au code d'écouter comme une radio les émitions des composants.
+On commence par dire quel méthode cela appelera (ici "remove-from-cart").
+Le deuxième paramètre est les paramètres que le premier paramètre de $emit
+recevra.
+Voici un exemple :
+console.log(this.cart);
+      this.variants[this.selectedVariant].nbrInCart -= 1
+      this.$emit("remove-from-cart", {
+        id: this.variants[this.selectedVariant].id,
+        add: false,
+});
+
+3) Dans l'index il faudra mettre un @ et ensuite le nom de la méthode, puis
+le nom de la méthode à appeler.
+Exemple :
+<product-display 
+      :premium="premium"
+      :cart="cart"
+      @add-to-cart="updateCart" 
+      @remove-from-cart="updateCart">
+</product-display>
+
+Elle va appeler la méthode suivante
+updateCart({ id, add }) {
+      if (add) {
+        this.cart.push(id);
+      } else{
+        const index = this.cart.indexOf(id);
+        if (index > -1) { 
+          this.cart.splice(index, 1);
+        }
+      }
+    },
