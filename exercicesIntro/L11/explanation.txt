@@ -1,0 +1,14 @@
+1. v-model
+Le v-model sert à lier une propriété de data() à un propriété 
+html qui sont dans le même document.
+Exemple :
+Template: 
+`<textarea id="review" v-model="review"></textarea>`,
+data(){
+  return {
+    review: '',
+  }
+}
+
+Quand on voudra prendre la valeur de review, la valeur sera celle 
+qui sera rentrée dans le champ textarea.
