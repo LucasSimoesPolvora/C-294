@@ -17,159 +17,37 @@
     <main id="app">
       <section class="items">
         <h4>Pick your items</h4>
-        <div class="product selected">
-          <div class="photo">
-            <img src="./assets/images/big-mac.png" />
-          </div>
-          <div class="description">
-            <span class="name">Big Mac</span>
-            <span class="price">$ 5.99</span>
-            <div class="quantity-area">
-              <button>-</button>
-              <span class="quantity">1</span>
-              <button>+</button>
-            </div>
-          </div>
-        </div>
-        <div class="product">
-          <div class="photo">
-            <img src="./assets/images/mc-chicken.png" />
-          </div>
-          <div class="description">
-            <span class="name">Mc Chicken</span>
-            <span class="price">$ 4.99</span>
-            <div class="quantity-area">
-              <button>-</button>
-              <span class="quantity">1</span>
-              <button>+</button>
-            </div>
-          </div>
-        </div>
-        <div class="product">
-          <div class="photo">
-            <img src="./assets/images/double-cb.png" />
-          </div>
-          <div class="description">
-            <span class="name">Double Cheese Burger</span>
-            <span class="price">$ 2.99</span>
-            <div class="quantity-area">
-              <button>-</button>
-              <span class="quantity">1</span>
-              <button>+</button>
-            </div>
-          </div>
-        </div>
-        <div class="product">
-          <div class="photo">
-            <img src="./assets/images/fries.png" />
-          </div>
-          <div class="description">
-            <span class="name">Fries</span>
-            <span class="price">$ 2.99</span>
-            <div class="quantity-area">
-              <button>-</button>
-              <span class="quantity">1</span>
-              <button>+</button>
-            </div>
-          </div>
-        </div>
-        <div class="product">
-          <div class="photo">
-            <img src="./assets/images/nuggets.png" />
-          </div>
-          <div class="description">
-            <span class="name">Mc Nuggets</span>
-            <span class="price">$ 3.49</span>
-            <div class="quantity-area">
-              <button>-</button>
-              <span class="quantity">1</span>
-              <button>+</button>
-            </div>
-          </div>
-        </div>
-        <div class="product">
-          <div class="photo">
-            <img src="./assets/images/salad.png" />
-          </div>
-          <div class="description">
-            <span class="name">Salad</span>
-            <span class="price">$ 2.79</span>
-            <div class="quantity-area">
-              <button>-</button>
-              <span class="quantity">1</span>
-              <button>+</button>
-            </div>
-          </div>
-        </div>
-        <div class="product">
-          <div class="photo">
-            <img src="./assets/images/cola.png" />
-          </div>
-          <div class="description">
-            <span class="name">Coke</span>
-            <span class="price">$ 1.99</span>
-            <div class="quantity-area">
-              <button>-</button>
-              <span class="quantity">1</span>
-              <button>+</button>
-            </div>
-          </div>
-        </div>
-        <div class="product">
-          <div class="photo">
-            <img src="./assets/images/lipton.png" />
-          </div>
-          <div class="description">
-            <span class="name">Ice Tea</span>
-            <span class="price">$ 1.99</span>
-            <div class="quantity-area">
-              <button>-</button>
-              <span class="quantity">1</span>
-              <button>+</button>
-            </div>
-          </div>
-        </div>
-        <div class="product">
-          <div class="photo">
-            <img src="./assets/images/water.png" />
-          </div>
-          <div class="description">
-            <span class="name">Water</span>
-            <span class="price">$ 1.49</span>
-            <div class="quantity-area">
-              <button>-</button>
-              <span class="quantity">1</span>
-              <button>+</button>
-            </div>
-          </div>
-        </div>
+        <product-item @add-order="updateOrder" @remove-order="updateOrder" :products="products"></product-item>
       </section>
 
       <section class="summary">
         <strong>Order Details</strong>
         <table>
           <thead>
-            <tr>
-              <th>Item</th>
-              <th>Total</th>
-            </tr>
+              <tr>
+                  <th>Item</th>
+                  <th>Total</th>
+              </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1x Big Mac</td>
-              <td>5.99</td>
-            </tr>
-
-            <tr>
-              <th>Total</th>
-              <th>5.99</th>
-            </tr>
+              <tr v-for="product in products">
+                  <td>{{ product.quantity + 'x ' + product.name}}</td>
+                  <td>{{ product.price* product.quantity }}$</td>
+              </tr>
+              <tr>
+                <th>Total</th>
+                <th>{{ totalPrice }}$</th>
+              </tr>
           </tbody>
-        </table>
+      </table>
       </section>
     </main>
 
+    <script src="./main.js"></script>
     
-    <script src="scripts.js"></script>
+    <script src="components/ProductItem.js"></script>
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
   </body>
 </html>
